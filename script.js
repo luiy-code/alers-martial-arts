@@ -182,6 +182,54 @@ function switchSchedTab(panelId) {
   s.textContent = '@keyframes fadeIn{from{opacity:0}to{opacity:1}}';
   document.head.appendChild(s);
 
+  /* ── Waiver form ── */
+  var waiverForm    = document.getElementById('waiverForm');
+  var waiverSuccess = document.getElementById('waiverSuccess');
+  var waiverSubmit  = document.getElementById('waiverSubmitBtn');
+
+  if (waiverForm) {
+    /* Auto-fill today's date */
+    var wDate = document.getElementById('wDate');
+    if (wDate) {
+      var now = new Date();
+      wDate.value = now.toISOString().split('T')[0];
+    }
+
+    waiverForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var checks = ['wc1','wc2','wc3','wc4'];
+      var allChecked = checks.every(function(id) {
+        var el = document.getElementById(id);
+        return el && el.checked;
+      });
+      var firstName  = document.getElementById('wFirstName');
+      var lastName   = document.getElementById('wLastName');
+      var email      = document.getElementById('wEmail');
+      var dob        = document.getElementById('wDob');
+      var sig        = document.getElementById('wSignature');
+      var ok = true;
+
+      if (!allChecked) {
+        alert('Please check all agreement boxes before signing.');
+        return;
+      }
+      if (!firstName.value.trim()) { firstName.style.borderColor='var(--red)'; ok=false; }
+      if (!lastName.value.trim())  { lastName.style.borderColor='var(--red)';  ok=false; }
+      if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) { email.style.borderColor='var(--red)'; ok=false; }
+      if (!dob.value) { dob.style.borderColor='var(--red)'; ok=false; }
+      if (!sig.value.trim()) { sig.style.borderColor='var(--red)'; ok=false; }
+      if (!ok) { alert('Please fill in all required fields and provide your signature.'); return; }
+
+      waiverSubmit.disabled = true;
+      waiverSubmit.textContent = 'Submitting…';
+      setTimeout(function() {
+        waiverForm.style.display = 'none';
+        waiverSuccess.style.display = 'block';
+        waiverSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 700);
+    });
+  }
+
   /* ── Summer camp popup ── */
   var campPopup   = document.getElementById('campPopup');
   var campClose   = document.getElementById('campClose');

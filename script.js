@@ -53,6 +53,14 @@ function switchSchedTab(panelId) {
   var menuBtn = document.getElementById('menuBtn');
   var navMenu = document.getElementById('navLinks');
 
+  /* ── Push navbar below topbar ── */
+  var topbar = document.querySelector('.topbar');
+  function setNavbarOffset() {
+    if (topbar && navbar) navbar.style.top = topbar.offsetHeight + 'px';
+  }
+  setNavbarOffset();
+  window.addEventListener('resize', setNavbarOffset);
+
   /* ── Navbar scroll shadow ── */
   function onScroll() { navbar.classList.toggle('scrolled', window.scrollY > 60); }
   window.addEventListener('scroll', onScroll, { passive: true });

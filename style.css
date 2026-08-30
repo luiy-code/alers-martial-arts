@@ -71,7 +71,17 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 section{padding:6rem 0}
 
 /* ── TOPBAR TWO-LOCATION ─────────────────────────────────────── */
-.topbar-sep{color:rgba(255,255,255,.2);margin:0 .3rem}
+.topbar{
+  position:sticky;top:0;z-index:1001;
+  background:var(--dark1);
+  border-bottom:1px solid rgba(255,255,255,.06);
+  padding:.45rem 0;
+  font-size:.72rem;color:var(--gray1);
+}
+.topbar-inner{
+  display:flex;align-items:center;flex-wrap:wrap;gap:.35rem .6rem;
+}
+.topbar-sep{color:rgba(255,255,255,.2);margin:0 .2rem}
 .topbar-loc strong{color:var(--gold-lt)}
 
 /* ── YOUTH / FAMILY BANNER ───────────────────────────────────── */

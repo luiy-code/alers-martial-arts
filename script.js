@@ -4,10 +4,11 @@
 
 /* ── Page tab switch (global — called from onclick in HTML) ── */
 var SECTION_MAP_G = {
-  home:'home', disciplines:'home', about:'home', testimonials:'home', coaches:'home',
+  home:'home', disciplines:'home', about:'home', testimonials:'home',
   programs:'programs',
   schedule:'schedule', pricing:'schedule',
   gallery:'gallery',
+  coaches:'coaches',
   merch:'merch',
   contact:'contact', waiver:'contact'
 };
@@ -66,10 +67,11 @@ function switchSchedTab(panelId) {
   /* Maps section IDs that live inside a tab pane → their tab's page name */
   var SECTION_MAP = {
     home: 'home', disciplines: 'home', about: 'home',
-    testimonials: 'home', coaches: 'home',
+    testimonials: 'home',
     programs: 'programs',
     schedule: 'schedule', pricing: 'schedule',
     gallery: 'gallery',
+    coaches: 'coaches',
     merch: 'merch',
     contact: 'contact', waiver: 'contact'
   };

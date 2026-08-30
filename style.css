@@ -1803,3 +1803,117 @@ section{padding:6rem 0}
 
 /* ── Footer logo override (slightly smaller) ─────────────────── */
 .foot-logo .nav-logo-img{width:48px;height:48px}
+
+/* ══════════════════════════════════════════════════════════
+   COACHES PAGE TAB
+══════════════════════════════════════════════════════════ */
+.coaches-page{padding:5rem 0 6rem;background:var(--black)}
+
+.coaches-page-header{text-align:center;max-width:680px;margin:0 auto 4rem}
+.coaches-page-intro{color:var(--gray2);font-size:1.05rem;line-height:1.7;margin-top:1rem}
+
+/* ── Featured profile (Jim) ── */
+.featured-profile{
+  display:flex;gap:3rem;align-items:flex-start;
+  background:var(--dark2);border:1px solid rgba(192,57,43,.25);
+  border-radius:var(--radius-lg);overflow:hidden;
+  margin-bottom:3rem;
+  box-shadow:0 0 60px rgba(192,57,43,.08);
+}
+
+.cp-photo-wrap{
+  position:relative;flex-shrink:0;width:340px;
+}
+.cp-photo{
+  width:100%;min-height:480px;
+  background:linear-gradient(160deg,#1a1a1a 0%,#0f0f0f 100%);
+  display:flex;align-items:center;justify-content:center;
+  border-radius:0;
+}
+.cp-badge{
+  position:absolute;top:1rem;left:1rem;
+  background:var(--red);color:#fff;
+  font-family:var(--font-h);font-size:.9rem;letter-spacing:.08em;
+  padding:.3rem .8rem;border-radius:4px;
+}
+.cp-social{
+  position:absolute;bottom:1rem;left:1rem;display:flex;gap:.5rem;
+}
+.cp-social-link{
+  display:flex;align-items:center;justify-content:center;
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(255,255,255,.1);color:#fff;
+  transition:background var(--t1) var(--ease);
+  border:1px solid rgba(255,255,255,.15);
+}
+.cp-social-link:hover{background:var(--red)}
+
+.cp-body{padding:2.5rem 2.5rem 2.5rem 0}
+.cp-name{font-family:var(--font-h);font-size:2.8rem;letter-spacing:.04em;margin-bottom:.25rem;line-height:1}
+.cp-title{color:var(--gold);font-size:.95rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:1rem}
+.cp-creds{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.5rem}
+.cp-bio{color:var(--gray2);line-height:1.75;font-size:.95rem}
+.cp-bio p{margin-bottom:1rem}
+.cp-bio p:last-child{margin-bottom:0}
+.cp-disciplines{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem}
+.disc-pill{
+  background:rgba(192,57,43,.12);border:1px solid rgba(192,57,43,.3);
+  color:var(--red);font-size:.78rem;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;
+  padding:.3rem .75rem;border-radius:20px;
+}
+
+/* ── Coach card grid ── */
+.coaches-grid-full{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1.5rem;margin-bottom:3rem;
+}
+
+.coach-profile-card{
+  background:var(--dark2);border:1px solid rgba(255,255,255,.06);
+  border-radius:var(--radius-lg);overflow:hidden;
+  transition:transform var(--t2) var(--ease),border-color var(--t2) var(--ease),box-shadow var(--t2) var(--ease);
+}
+.coach-profile-card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(192,57,43,.35);
+  box-shadow:0 12px 40px rgba(0,0,0,.5);
+}
+.coach-tba{opacity:.55}
+.coach-tba:hover{transform:none;border-color:rgba(255,255,255,.06);box-shadow:none}
+
+.cpc-photo-wrap{position:relative}
+.cpc-photo{
+  width:100%;min-height:280px;
+  background:linear-gradient(160deg,#1c1c1c 0%,#111 100%);
+  display:flex;align-items:center;justify-content:center;
+}
+.cpc-body{padding:1.5rem}
+.cpc-name{font-family:var(--font-h);font-size:1.7rem;letter-spacing:.04em;margin-bottom:.2rem}
+.cpc-title{color:var(--gold);font-size:.82rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.85rem}
+.cpc-bio{color:var(--gray2);font-size:.88rem;line-height:1.7;margin:1rem 0}
+
+/* ── Join the team CTA ── */
+.coaches-cta-block{
+  background:linear-gradient(135deg,var(--dark2) 0%,rgba(192,57,43,.08) 100%);
+  border:1px solid rgba(192,57,43,.2);
+  border-radius:var(--radius-lg);
+  text-align:center;padding:3rem 2rem;
+}
+.coaches-cta-inner h3{
+  font-family:var(--font-h);font-size:2rem;letter-spacing:.04em;margin-bottom:.75rem;
+}
+.coaches-cta-inner p{color:var(--gray2);margin-bottom:1.5rem;font-size:.95rem;max-width:480px;margin-left:auto;margin-right:auto}
+
+/* ── Responsive ── */
+@media(max-width:900px){
+  .featured-profile{flex-direction:column}
+  .cp-photo-wrap{width:100%}
+  .cp-photo{min-height:320px}
+  .cp-body{padding:1.75rem}
+  .coaches-grid-full{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:580px){
+  .coaches-grid-full{grid-template-columns:1fr}
+  .cp-name{font-size:2rem}
+}

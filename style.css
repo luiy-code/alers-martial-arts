@@ -1855,6 +1855,28 @@ section{padding:6rem 0}
 .cp-bio{color:var(--gray2);line-height:1.75;font-size:.95rem}
 .cp-bio p{margin-bottom:1rem}
 .cp-bio p:last-child{margin-bottom:0}
+.cp-stats{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:0;margin:1.5rem 0;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:var(--radius);overflow:hidden;
+}
+.cp-stat{
+  text-align:center;padding:.9rem .5rem;
+  background:rgba(255,255,255,.03);
+  border-right:1px solid rgba(255,255,255,.07);
+}
+.cp-stat:last-child{border-right:none}
+.cp-stat-num{
+  display:block;font-family:var(--font-h);
+  font-size:2rem;letter-spacing:.04em;
+  color:var(--gold);line-height:1;
+}
+.cp-stat-lbl{
+  display:block;font-size:.7rem;font-weight:600;
+  letter-spacing:.07em;text-transform:uppercase;
+  color:var(--gray1);margin-top:.3rem;
+}
 .cp-disciplines{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem}
 .disc-pill{
   background:rgba(192,57,43,.12);border:1px solid rgba(192,57,43,.3);

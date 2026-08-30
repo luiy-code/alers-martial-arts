@@ -23,22 +23,72 @@ function switchSchedTab(panelId) {
   var menuBtn = document.getElementById('menuBtn');
   var navMenu = document.getElementById('navLinks');
 
-  /* ── Active nav link — declare BEFORE onScroll is called ── */
-  var sections = Array.from(document.querySelectorAll('section[id], div[id]'));
-  var navLinks = Array.from(document.querySelectorAll('.nav-links a:not(.btn-nav)'));
-
-  function updateActive() {
-    var current = '';
-    sections.forEach(function(s) { if (window.scrollY >= s.offsetTop - 140) current = s.id; });
-    navLinks.forEach(function(a) { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
-  }
-
-  function onScroll() {
-    navbar.classList.toggle('scrolled', window.scrollY > 60);
-    updateActive();
-  }
+  /* ── Navbar scroll shadow ── */
+  function onScroll() { navbar.classList.toggle('scrolled', window.scrollY > 60); }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+
+  /* ────────────────────────────────────────────────────────────
+     TAB SYSTEM
+     Pages map:  home | programs | schedule | gallery | merch | contact
+     Any internal #hash link switches to the right tab.
+  ──────────────────────────────────────────────────────────── */
+
+  /* Maps section IDs that live inside a tab pane → their tab's page name */
+  var SECTION_MAP = {
+    home: 'home', disciplines: 'home', about: 'home',
+    testimonials: 'home', coaches: 'home',
+    programs: 'programs',
+    schedule: 'schedule', pricing: 'schedule',
+    gallery: 'gallery',
+    merch: 'merch',
+    contact: 'contact', waiver: 'contact'
+  };
+
+  function switchPage(page, pushState) {
+    if (!page) page = 'home';
+    /* Update panes */
+    document.querySelectorAll('.page-section').forEach(function(p) {
+      p.classList.toggle('active', p.dataset.page === page);
+    });
+    /* Update tab-links */
+    document.querySelectorAll('.nav-links .tab-link').forEach(function(a) {
+      var href = a.getAttribute('href').replace('#', '');
+      var mapped = SECTION_MAP[href] || href;
+      a.classList.toggle('active', mapped === page);
+    });
+    window.scrollTo(0, 0);
+    if (pushState !== false) {
+      history.pushState(null, '', '#' + page);
+    }
+    closeMenu();
+  }
+
+  /* Init on load from URL hash */
+  (function() {
+    var hash = location.hash.replace('#', '');
+    switchPage(SECTION_MAP[hash] || hash || 'home', false);
+  })();
+
+  /* Handle browser back/forward */
+  window.addEventListener('popstate', function() {
+    var hash = location.hash.replace('#', '');
+    switchPage(SECTION_MAP[hash] || hash || 'home', false);
+  });
+
+  /* Intercept ALL internal #hash link clicks */
+  document.addEventListener('click', function(e) {
+    var a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    var hash = a.getAttribute('href').replace('#', '');
+    if (!hash) return;
+    var page = SECTION_MAP[hash] || hash;
+    /* Only intercept known tab pages */
+    var knownPages = ['home','programs','schedule','gallery','merch','contact'];
+    if (knownPages.indexOf(page) === -1) return;
+    e.preventDefault();
+    switchPage(page);
+  });
 
   /* ── Mobile menu ── */
   menuBtn.addEventListener('click', function() {
@@ -48,12 +98,6 @@ function switchSchedTab(panelId) {
     document.body.style.overflow = open ? 'hidden' : '';
   });
 
-  navMenu.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', closeMenu); });
-
-  document.addEventListener('click', function(e) {
-    if (navMenu.classList.contains('open') &&
-        !navMenu.contains(e.target) && !menuBtn.contains(e.target)) closeMenu();
-  });
   document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMenu(); });
 
   function closeMenu() {
@@ -62,16 +106,6 @@ function switchSchedTab(panelId) {
     menuBtn.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
   }
-
-  /* ── Smooth scroll ── */
-  document.querySelectorAll('a[href^="#"]').forEach(function(link) {
-    link.addEventListener('click', function(e) {
-      var target = document.querySelector(link.getAttribute('href'));
-      if (!target) return;
-      e.preventDefault();
-      window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - navbar.offsetHeight - 16, behavior: 'smooth' });
-    });
-  });
 
   /* ── Scroll-reveal ── */
   var revealSelectors = [

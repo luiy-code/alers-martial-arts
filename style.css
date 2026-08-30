@@ -1767,6 +1767,35 @@ section{padding:6rem 0}
 /* ═══════════════════════════════════════════════════════════════
    LOGO KEYFRAME
 ══════════════════════════════════════════════════════════════ */
+/* ══════════════════════════════════════════════════════════
+   TAB PANE SYSTEM
+══════════════════════════════════════════════════════════ */
+.page-section{display:none}
+.page-section.active{display:block}
+
+/* Tab-link active state in navbar */
+.nav-links .tab-link.active{
+  color:var(--gold) !important;
+  position:relative;
+}
+.nav-links .tab-link.active::after{
+  content:'';
+  position:absolute;
+  bottom:-4px;left:0;right:0;
+  height:2px;
+  background:var(--gold);
+  border-radius:2px;
+}
+
+/* Page-in animation */
+@keyframes pageIn{
+  from{opacity:0;transform:translateY(10px)}
+  to  {opacity:1;transform:translateY(0)}
+}
+.page-section.active{
+  animation:pageIn .3s var(--ease-out) both;
+}
+
 @keyframes logoPulse{
   0%,100%{box-shadow:0 0 0 4px rgba(192,57,43,.5), 0 0 40px rgba(192,57,43,.2), 0 8px 32px rgba(0,0,0,.8)}
   50%    {box-shadow:0 0 0 6px rgba(240,165,0,.55), 0 0 60px rgba(240,165,0,.2), 0 8px 32px rgba(0,0,0,.8)}

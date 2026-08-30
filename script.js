@@ -2,6 +2,35 @@
    ALERS MARTIAL ARTS — script.js (v3)
    ============================================================ */
 
+/* ── Page tab switch (global — called from onclick in HTML) ── */
+var SECTION_MAP_G = {
+  home:'home', disciplines:'home', about:'home', testimonials:'home', coaches:'home',
+  programs:'programs',
+  schedule:'schedule', pricing:'schedule',
+  gallery:'gallery',
+  merch:'merch',
+  contact:'contact', waiver:'contact'
+};
+
+function switchPage(page) {
+  if (!page) page = 'home';
+  document.querySelectorAll('.page-section').forEach(function(p) {
+    p.classList.toggle('active', p.dataset.page === page);
+  });
+  document.querySelectorAll('.nav-links .tab-link').forEach(function(a) {
+    var href = a.getAttribute('href').replace('#', '');
+    a.classList.toggle('active', (SECTION_MAP_G[href] || href) === page);
+  });
+  window.scrollTo(0, 0);
+  try { history.pushState(null, '', '#' + page); } catch(e) {}
+  /* close mobile menu if open */
+  var nm = document.getElementById('navLinks');
+  var mb = document.getElementById('menuBtn');
+  if (nm) nm.classList.remove('open');
+  if (mb) { mb.classList.remove('open'); mb.setAttribute('aria-expanded','false'); }
+  document.body.style.overflow = '';
+}
+
 /* ── Schedule tab switch (global — called from onclick in HTML) ── */
 function switchSchedTab(panelId) {
   document.querySelectorAll('.sched-tab').forEach(b => {
@@ -67,27 +96,14 @@ function switchSchedTab(panelId) {
   /* Init on load from URL hash */
   (function() {
     var hash = location.hash.replace('#', '');
-    switchPage(SECTION_MAP[hash] || hash || 'home', false);
+    var page = SECTION_MAP_G[hash] || hash || 'home';
+    switchPage(page);
   })();
 
   /* Handle browser back/forward */
   window.addEventListener('popstate', function() {
     var hash = location.hash.replace('#', '');
-    switchPage(SECTION_MAP[hash] || hash || 'home', false);
-  });
-
-  /* Intercept ALL internal #hash link clicks */
-  document.addEventListener('click', function(e) {
-    var a = e.target.closest('a[href^="#"]');
-    if (!a) return;
-    var hash = a.getAttribute('href').replace('#', '');
-    if (!hash) return;
-    var page = SECTION_MAP[hash] || hash;
-    /* Only intercept known tab pages */
-    var knownPages = ['home','programs','schedule','gallery','merch','contact'];
-    if (knownPages.indexOf(page) === -1) return;
-    e.preventDefault();
-    switchPage(page);
+    switchPage(SECTION_MAP_G[hash] || hash || 'home');
   });
 
   /* ── Mobile menu ── */

@@ -1885,13 +1885,19 @@ section{padding:6rem 0}
 }
 
 .cp-photo-wrap{
-  position:relative;flex-shrink:0;width:340px;
+  position:relative;flex-shrink:0;width:340px;overflow:hidden;
 }
 .cp-photo{
   width:100%;min-height:480px;
   background:linear-gradient(160deg,#1a1a1a 0%,#0f0f0f 100%);
   display:flex;align-items:center;justify-content:center;
   border-radius:0;
+}
+/* Real photo for featured profile */
+.cp-photo-img{
+  width:100%;height:100%;min-height:480px;
+  object-fit:cover;object-position:top center;
+  display:block;
 }
 .cp-badge{
   position:absolute;top:1rem;left:1rem;
@@ -1985,11 +1991,17 @@ section{padding:6rem 0}
 .coach-tba{opacity:.55}
 .coach-tba:hover{transform:none;border-color:rgba(255,255,255,.06);box-shadow:none}
 
-.cpc-photo-wrap{position:relative}
+.cpc-photo-wrap{position:relative;overflow:hidden}
 .cpc-photo{
   width:100%;min-height:280px;
   background:linear-gradient(160deg,#1c1c1c 0%,#111 100%);
   display:flex;align-items:center;justify-content:center;
+}
+/* Real photo image inside coach card */
+.cpc-photo-img{
+  width:100%;height:300px;
+  object-fit:cover;object-position:top center;
+  display:block;
 }
 .cpc-body{padding:1.5rem}
 .cpc-name{font-family:var(--font-h);font-size:1.7rem;letter-spacing:.04em;margin-bottom:.2rem}

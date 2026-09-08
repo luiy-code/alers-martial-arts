@@ -1018,55 +1018,60 @@
       <h3 class="coaches-cat-title">Branded Rashguards</h3>
     </div>
 
-    <div class="merch-grid merch-grid-3">
-
-      <div class="merch-card">
-        <div class="merch-photo merch-photo-sm">
-          <img src="merch-img-1.png" alt="AMA Rashguard Top" class="merch-real-img">
+    <div class="merch-single-wrap">
+      <div class="merch-card merch-card-wide">
+        <div class="merch-photo merch-photo-wide">
+          <img src="merch-img-1.png" alt="AMA Rashguard Collection" class="merch-real-img">
+          <span class="merch-badge merch-badge-value">Full Set $80</span>
         </div>
         <div class="merch-body">
-          <h3>Rashguard Top</h3>
-          <p>AMA branded compression rashguard — black classic &amp; USA edition. Perfect for BJJ, MMA, and grappling.</p>
-          <div class="merch-footer">
-            <span class="merch-price-tag">$45</span>
-            <a href="https://wa.me/19543030527?text=Hi!+I'd+like+to+order+an+AMA+Rashguard+Top+($45).+What+sizes+are+available%3F" target="_blank" rel="noopener" class="btn btn-gold merch-buy-btn">Buy Now</a>
+          <h3>AMA Rashguard Collection</h3>
+          <p>Official AMA compression rashguard and fight shorts — black classic &amp; USA edition. Built for BJJ, MMA, and grappling. Pick what you need below.</p>
+
+          <!-- Option picker -->
+          <div class="merch-options" id="rashOptions">
+            <label class="merch-opt">
+              <input type="radio" name="rash" value="set" checked
+                data-price="$80"
+                data-msg="Hi!+I'd+like+to+order+the+AMA+Rashguard+Set+(Top+%2B+Shorts+%2480).+What+sizes+do+you+have%3F">
+              <span class="merch-opt-inner">
+                <span class="merch-opt-name">Full Set <em>(Top + Shorts)</em></span>
+                <span class="merch-opt-right">
+                  <span class="merch-price-tag">$80</span>
+                  <span class="merch-save-tag">Save $10</span>
+                </span>
+              </span>
+            </label>
+            <label class="merch-opt">
+              <input type="radio" name="rash" value="top"
+                data-price="$45"
+                data-msg="Hi!+I'd+like+to+order+an+AMA+Rashguard+Top+(%2445).+What+sizes+are+available%3F">
+              <span class="merch-opt-inner">
+                <span class="merch-opt-name">Rashguard Top only</span>
+                <span class="merch-price-tag">$45</span>
+              </span>
+            </label>
+            <label class="merch-opt">
+              <input type="radio" name="rash" value="shorts"
+                data-price="$45"
+                data-msg="Hi!+I'd+like+to+order+AMA+Fight+Shorts+(%2445).+What+sizes+are+available%3F">
+              <span class="merch-opt-inner">
+                <span class="merch-opt-name">Fight Shorts only</span>
+                <span class="merch-price-tag">$45</span>
+              </span>
+            </label>
+          </div>
+
+          <div class="merch-footer" style="margin-top:1.25rem">
+            <a id="rashBuyBtn"
+               href="https://wa.me/19543030527?text=Hi!+I'd+like+to+order+the+AMA+Rashguard+Set+(Top+%2B+Shorts+%2480).+What+sizes+do+you+have%3F"
+               target="_blank" rel="noopener" class="btn btn-gold merch-buy-btn merch-buy-full">
+              Buy Now — $80
+            </a>
           </div>
         </div>
       </div>
-
-      <div class="merch-card">
-        <div class="merch-photo merch-photo-sm">
-          <img src="merch-img-1.png" alt="AMA Fight Shorts" class="merch-real-img">
-        </div>
-        <div class="merch-body">
-          <h3>Fight Shorts</h3>
-          <p>AMA branded fight shorts — lightweight, durable, and built for the mat or cage. Classic and USA styles.</p>
-          <div class="merch-footer">
-            <span class="merch-price-tag">$45</span>
-            <a href="https://wa.me/19543030527?text=Hi!+I'd+like+to+order+AMA+Fight+Shorts+($45).+What+sizes+are+available%3F" target="_blank" rel="noopener" class="btn btn-gold merch-buy-btn">Buy Now</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="merch-card merch-card-featured">
-        <div class="merch-photo merch-photo-sm">
-          <img src="merch-img-1.png" alt="AMA Rashguard Set" class="merch-real-img">
-          <span class="merch-badge merch-badge-value">Best Value</span>
-        </div>
-        <div class="merch-body">
-          <h3>Rashguard Set</h3>
-          <p>Top + Fight Shorts bundle — save when you grab both. Train in full AMA style from day one.</p>
-          <div class="merch-footer">
-            <div>
-              <span class="merch-price-tag">$80</span>
-              <span class="merch-save-tag">Save $10</span>
-            </div>
-            <a href="https://wa.me/19543030527?text=Hi!+I'd+like+to+order+the+AMA+Rashguard+Set+(Top+%2B+Shorts+$80).+What+sizes+do+you+have%3F" target="_blank" rel="noopener" class="btn btn-gold merch-buy-btn">Buy Now</a>
-          </div>
-        </div>
-      </div>
-
-    </div><!-- /rashguard grid -->
+    </div><!-- /rashguard single -->
 
     <!-- ── Beast Training Gear ── -->
     <div class="coaches-section-label">
@@ -1078,7 +1083,7 @@
 
       <div class="merch-card">
         <div class="merch-photo merch-photo-sm">
-          <img src="merch-img-2.jpg" alt="Boxing Gloves" class="merch-real-img">
+          <img src="merch-gloves.png" alt="Boxing Gloves" class="merch-real-img">
         </div>
         <div class="merch-body">
           <h3>Boxing Gloves</h3>
@@ -1092,7 +1097,7 @@
 
       <div class="merch-card">
         <div class="merch-photo merch-photo-sm">
-          <div class="merch-ph"><span class="merch-ph-lbl">PHOTO<br>COMING SOON</span></div>
+          <img src="merch-shinpads.png" alt="Shin Pads" class="merch-real-img">
         </div>
         <div class="merch-body">
           <h3>Shin Pads</h3>
@@ -1106,7 +1111,7 @@
 
       <div class="merch-card">
         <div class="merch-photo merch-photo-sm">
-          <div class="merch-ph"><span class="merch-ph-lbl">PHOTO<br>COMING SOON</span></div>
+          <img src="merch-shorts.png" alt="Muay Thai Shorts" class="merch-real-img">
           <span class="merch-badge merch-badge-sale">Sale</span>
         </div>
         <div class="merch-body">
@@ -1121,7 +1126,7 @@
 
       <div class="merch-card">
         <div class="merch-photo merch-photo-sm">
-          <img src="merch-img-2.jpg" alt="Hand Wraps" class="merch-real-img">
+          <img src="merch-wraps.png" alt="Hand Wraps" class="merch-real-img">
         </div>
         <div class="merch-body">
           <h3>Hand Wraps</h3>
@@ -1733,6 +1738,6 @@
 </a>
 
 
-<script src="script.js?v=7"></script>
+<script src="script.js?v=8"></script>
 </body>
 </html>

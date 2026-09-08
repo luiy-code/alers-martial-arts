@@ -292,6 +292,20 @@ function switchSchedTab(panelId) {
     });
   }
 
+  /* ── Rashguard option picker ── */
+  var rashOptions = document.getElementById('rashOptions');
+  var rashBuyBtn  = document.getElementById('rashBuyBtn');
+  if (rashOptions && rashBuyBtn) {
+    rashOptions.addEventListener('change', function(e) {
+      var radio = e.target;
+      if (radio.type !== 'radio') return;
+      var msg   = radio.dataset.msg;
+      var price = radio.dataset.price;
+      rashBuyBtn.href = 'https://wa.me/19543030527?text=' + msg;
+      rashBuyBtn.textContent = 'Buy Now — ' + price;
+    });
+  }
+
   /* ── Summer camp popup ── */
   var campPopup   = document.getElementById('campPopup');
   var campClose   = document.getElementById('campClose');

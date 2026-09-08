@@ -1999,8 +1999,8 @@ section{padding:6rem 0}
 }
 /* Real photo image inside coach card */
 .cpc-photo-img{
-  width:100%;height:300px;
-  object-fit:cover;object-position:center 20%;
+  width:100%;height:380px;
+  object-fit:cover;object-position:center 35%;
   display:block;
 }
 .cpc-body{padding:1.5rem}

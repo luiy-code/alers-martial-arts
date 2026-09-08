@@ -265,6 +265,7 @@ function switchSchedTab(panelId) {
       var firstName  = document.getElementById('wFirstName');
       var lastName   = document.getElementById('wLastName');
       var email      = document.getElementById('wEmail');
+      var program    = document.getElementById('wProgram');
       var dob        = document.getElementById('wDob');
       var sig        = document.getElementById('wSignature');
       var ok = true;
@@ -276,6 +277,7 @@ function switchSchedTab(panelId) {
       if (!firstName.value.trim()) { firstName.style.borderColor='var(--red)'; ok=false; }
       if (!lastName.value.trim())  { lastName.style.borderColor='var(--red)';  ok=false; }
       if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) { email.style.borderColor='var(--red)'; ok=false; }
+      if (program && !program.value) { program.style.borderColor='var(--red)'; ok=false; }
       if (!dob.value) { dob.style.borderColor='var(--red)'; ok=false; }
       if (!sig.value.trim()) { sig.style.borderColor='var(--red)'; ok=false; }
       if (!ok) { alert('Please fill in all required fields and provide your signature.'); return; }

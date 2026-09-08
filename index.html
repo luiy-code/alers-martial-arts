@@ -1353,6 +1353,26 @@
               <label for="wEmail">Email Address <span class="req">*</span></label>
               <input type="email" id="wEmail" placeholder="your@email.com" required>
             </div>
+            <div class="f-row">
+              <div class="f-group">
+                <label for="wPhone">Phone Number</label>
+                <input type="tel" id="wPhone" placeholder="(954) 000-0000" autocomplete="tel">
+              </div>
+              <div class="f-group">
+                <label for="wProgram">Program Interest <span class="req">*</span></label>
+                <select id="wProgram" required>
+                  <option value="" disabled selected>Select a program…</option>
+                  <option value="BJJ">Brazilian Jiu-Jitsu</option>
+                  <option value="Kickboxing">Kickboxing</option>
+                  <option value="Muay Thai">Muay Thai</option>
+                  <option value="Boxing">Boxing</option>
+                  <option value="MMA">MMA</option>
+                  <option value="Kids BJJ">Kids BJJ</option>
+                  <option value="Kids Kickboxing">Kids Kickboxing</option>
+                  <option value="Not sure">Not sure yet</option>
+                </select>
+              </div>
+            </div>
             <div class="f-group">
               <label for="wDob">Date of Birth <span class="req">*</span></label>
               <input type="date" id="wDob" required>
@@ -1388,7 +1408,7 @@
 
           <button type="submit" class="btn btn-primary btn-lg btn-full" id="waiverSubmitBtn">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-            Sign &amp; Submit Waiver
+            Sign Waiver &amp; Book Free Trial
           </button>
         </form>
 
@@ -1396,9 +1416,12 @@
           <div class="suc-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
           </div>
-          <h3>Waiver Signed — You're All Set!</h3>
-          <p>Your liability waiver has been submitted. Welcome to Alers Martial Arts — see you on the mat!</p>
-          <a href="#contact" class="btn btn-primary" style="margin-top:1rem">Schedule Your First Class</a>
+          <h3>You're All Set — Welcome to AMA!</h3>
+          <div class="waiver-success-checks">
+            <p class="wsuc-item">✅ <strong>Liability waiver signed</strong> — on file for your first class.</p>
+            <p class="wsuc-item">✅ <strong>Free trial class requested</strong> — our team will reach out shortly to confirm your session.</p>
+          </div>
+          <p style="margin-top:1rem;color:var(--gray2);font-size:.88rem">Questions? Text or WhatsApp us at <a href="https://wa.me/19543030527" target="_blank" rel="noopener" style="color:var(--gold)">(954) 303-0527</a>.</p>
         </div>
 
       </div>
@@ -1749,6 +1772,6 @@
 </a>
 
 
-<script src="script.js?v=6"></script>
+<script src="script.js?v=7"></script>
 </body>
 </html>

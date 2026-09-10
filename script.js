@@ -329,3 +329,166 @@ function switchSchedTab(panelId) {
   }
 
 })();
+
+/* ── Shop product modal ────────────────────────────────────── */
+var SHOP_DATA = {
+  rashguard: {
+    brand:'AMA', name:'Rashguard',
+    desc:'Official AMA compression rashguard — polyester/spandex blend built for BJJ, MMA, and grappling. "AMA – American Martial Arts" chest print.',
+    price:'$45', defaultImg:'shop-rash-classic-top.jpg',
+    styles:[
+      {label:'Classic Black', img:'shop-rash-classic-top.jpg'},
+      {label:'USA Edition',   img:'shop-rash-usa-top.jpg'}
+    ],
+    sizes:['S','M','L','XL','2XL'],
+    waBase:'Hi!+I%27d+like+to+order+an+AMA+Rashguard+(%2445).'
+  },
+  fightshorts: {
+    brand:'AMA', name:'Fight Shorts',
+    desc:'Official AMA MMA fight shorts — "01 A Team" embroidered patch, contrast flag panels, 4-way stretch elastic waistband.',
+    price:'$45', defaultImg:'shop-rash-classic-bot.jpg',
+    styles:[
+      {label:'Classic Black', img:'shop-rash-classic-bot.jpg'},
+      {label:'USA Edition',   img:'shop-rash-usa-bot.jpg'}
+    ],
+    sizes:['S','M','L','XL','2XL'],
+    waBase:'Hi!+I%27d+like+to+order+AMA+Fight+Shorts+(%2445).'
+  },
+  amaset: {
+    brand:'AMA', name:'Full Set — Top + Shorts',
+    desc:'The complete AMA look — rashguard and fight shorts bundled together. Save $10 vs buying separately.',
+    price:'$80', oldPrice:'$90', defaultImg:'shop-rash-classic.jpg',
+    styles:[
+      {label:'Classic Black', img:'shop-rash-classic.jpg'},
+      {label:'USA Edition',   img:'shop-rash-usa.jpg'}
+    ],
+    sizes:['S','M','L','XL','2XL'],
+    waBase:'Hi!+I%27d+like+to+order+the+AMA+Full+Set+(Rashguard+%2B+Shorts%2C+%2480).'
+  },
+  shorts: {
+    brand:'Beast', name:'Muay Thai Shorts',
+    desc:'Lightweight Beast Muay Thai shorts with the iconic gorilla logo — black/white splatter print. Made for mobility and built to last.',
+    price:'$25', defaultImg:'shop-shorts.jpg',
+    styles:null,
+    sizes:['S','M','L','XL','2XL'],
+    waBase:'Hi!+I%27d+like+to+order+Beast+Muay+Thai+Shorts+(%2425).'
+  },
+  gloves: {
+    brand:'Beast', name:'Boxing Gloves',
+    desc:'Jim "The Beast" Alers signature gloves — premium build for bag work, pad work, and sparring. White splatter graphic with bold BEAST lettering.',
+    price:'$45', defaultImg:'shop-gloves-red.jpg',
+    styles:[
+      {label:'Red / White',   img:'shop-gloves-red.jpg'},
+      {label:'Black / White', img:'shop-gloves-bw.jpg'}
+    ],
+    sizes:null,
+    waBase:'Hi!+I%27d+like+to+order+Beast+Boxing+Gloves+(%2445).'
+  },
+  wraps: {
+    brand:'Beast', name:'Inner Gloves',
+    desc:'Padded knuckle inner gloves with the Beast gorilla-print wrap band. Slip on and train — no wrapping time needed.',
+    price:'$15', defaultImg:'shop-wraps.jpg',
+    styles:null, sizes:null,
+    waBase:'Hi!+I%27d+like+to+order+Beast+Inner+Gloves+(%2415).'
+  },
+  shinpads: {
+    brand:'Beast', name:'Shin Pads',
+    desc:'Professional Beast shin guards — full BEAST logo front, firm shell, padded interior, Velcro ankle strap. Essential for Muay Thai and MMA sparring.',
+    price:'$45', defaultImg:'shop-shinpads.jpg',
+    styles:null, sizes:null,
+    waBase:'Hi!+I%27d+like+to+order+Beast+Shin+Pads+(%2445).'
+  }
+};
+
+var _shopState = {key:null, styleIdx:0, size:null};
+
+function shopOpen(key) {
+  var p = SHOP_DATA[key];
+  if (!p) return;
+  _shopState = {key:key, styleIdx:0, size:null};
+
+  document.getElementById('shopModalBrand').textContent = p.brand;
+  document.getElementById('shopModalName').textContent  = p.name;
+  document.getElementById('shopModalDesc').textContent  = p.desc;
+
+  var priceEl = document.getElementById('shopModalPrice');
+  priceEl.innerHTML = p.price + (p.oldPrice ? ' <span class="shop-old-price">' + p.oldPrice + '</span>' : '');
+
+  var img = document.getElementById('shopModalImg');
+  img.src = p.defaultImg; img.alt = p.name;
+
+  /* Style pills */
+  var styleGrp   = document.getElementById('shopStyleGroup');
+  var stylePills  = document.getElementById('shopStylePills');
+  stylePills.innerHTML = '';
+  if (p.styles && p.styles.length) {
+    styleGrp.style.display = '';
+    p.styles.forEach(function(s, i) {
+      var btn = document.createElement('button');
+      btn.className = 'shop-pill' + (i === 0 ? ' active' : '');
+      btn.textContent = s.label;
+      btn.onclick = function() {
+        _shopState.styleIdx = i;
+        document.getElementById('shopModalImg').src = s.img;
+        stylePills.querySelectorAll('.shop-pill').forEach(function(b,bi){ b.classList.toggle('active', bi===i); });
+        _shopUpdateLink();
+      };
+      stylePills.appendChild(btn);
+    });
+  } else {
+    styleGrp.style.display = 'none';
+  }
+
+  /* Size pills */
+  var sizeGrp  = document.getElementById('shopSizeGroup');
+  var sizePills = document.getElementById('shopSizePills');
+  sizePills.innerHTML = '';
+  if (p.sizes && p.sizes.length) {
+    sizeGrp.style.display = '';
+    p.sizes.forEach(function(sz) {
+      var btn = document.createElement('button');
+      btn.className = 'shop-pill shop-pill-size';
+      btn.textContent = sz;
+      btn.onclick = function() {
+        _shopState.size = sz;
+        sizePills.querySelectorAll('.shop-pill').forEach(function(b){ b.classList.toggle('active', b.textContent===sz); });
+        _shopUpdateLink();
+      };
+      sizePills.appendChild(btn);
+    });
+  } else {
+    sizeGrp.style.display = 'none';
+  }
+
+  _shopUpdateLink();
+
+  var modal = document.getElementById('shopModal');
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function _shopUpdateLink() {
+  var p = SHOP_DATA[_shopState.key];
+  if (!p) return;
+  var msg = p.waBase;
+  if (p.styles && p.styles[_shopState.styleIdx]) {
+    msg += '+Style%3A+' + encodeURIComponent(p.styles[_shopState.styleIdx].label).replace(/%20/g,'+');
+  }
+  if (_shopState.size) { msg += '+Size%3A+' + _shopState.size; }
+  document.getElementById('shopModalBuy').href = 'https://wa.me/19543030527?text=' + msg;
+}
+
+function shopClose() {
+  document.getElementById('shopModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+/* keyboard nav for cards */
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') shopClose();
+});
+document.querySelectorAll('.shop-card').forEach(function(card) {
+  card.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
+  });
+});

@@ -255,9 +255,9 @@ section{padding:6rem 0}
 
 /* badge in program card headers */
 .prog-badge-icon{
-  width:54px;height:54px;border-radius:6px;flex-shrink:0;
+  width:54px;height:54px;border-radius:10px;flex-shrink:0;
   display:flex;align-items:center;justify-content:center;
-  font-family:var(--font-h);font-size:1.1rem;letter-spacing:.05em;
+  font-size:1.75rem;line-height:1;
 }
 
 /* ── CONTACT SVG ICON ───────────────────────────────────────── */
@@ -465,6 +465,28 @@ section{padding:6rem 0}
   pointer-events:none;
 }
 
+/* Jim Alers champion photo — bleeds in from right */
+.hero-fighter{
+  position:absolute;
+  right:0;top:0;bottom:0;
+  width:65%;
+  background:url('hero-bg.webp') center top / cover no-repeat;
+  -webkit-mask-image:linear-gradient(to right,
+    transparent 0%,
+    rgba(0,0,0,.4) 18%,
+    rgba(0,0,0,.8) 38%,
+    black 58%
+  );
+  mask-image:linear-gradient(to right,
+    transparent 0%,
+    rgba(0,0,0,.4) 18%,
+    rgba(0,0,0,.8) 38%,
+    black 58%
+  );
+  pointer-events:none;
+  z-index:1;
+}
+
 .hero-glow-red{
   position:absolute;right:-10%;top:-15%;
   width:700px;height:700px;border-radius:50%;
@@ -501,8 +523,9 @@ section{padding:6rem 0}
 /* main headline */
 .hero-title{
   font-family:var(--font-h);
-  font-size:clamp(3.5rem,11vw,8rem);
+  font-size:clamp(2.8rem,8vw,6.5rem);
   line-height:.93;letter-spacing:.02em;
+  max-width:54vw;
   margin-bottom:1.5rem;
   animation:fadeUp .7s .1s var(--ease-out) both;
 }
@@ -827,8 +850,8 @@ section{padding:6rem 0}
 
 /* header stripe */
 .prog-hd{
-  display:flex;align-items:center;gap:1.25rem;
-  padding:1.4rem 1.5rem;
+  display:flex;align-items:center;gap:1rem;
+  padding:.85rem 1.25rem;
   border-bottom:1px solid rgba(255,255,255,.06);
 }
 .prog-hd.kids      {background:linear-gradient(135deg,#0a1e0c,#060e07)}
@@ -837,15 +860,15 @@ section{padding:6rem 0}
 .prog-hd.mma       {background:linear-gradient(135deg,#1c0606,#0e0202)}
 .prog-hd.kickboxing{background:linear-gradient(135deg,#201400,#120b00)}
 
-.prog-emoji{font-size:2.2rem}
-.prog-hd-txt h3{font-family:var(--font-h);font-size:1.5rem;letter-spacing:.03em;margin-bottom:.15rem}
-.prog-ages{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--gold)}
+.prog-emoji{font-size:1.9rem}
+.prog-hd-txt h3{font-family:var(--font-h);font-size:1.35rem;letter-spacing:.03em;margin-bottom:.1rem}
+.prog-ages{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--gold)}
 
-.prog-body{padding:1.5rem;flex:1;display:flex;flex-direction:column}
-.prog-body > p{color:var(--gray2);font-size:.86rem;line-height:1.7;margin-bottom:1rem}
-.prog-list{margin-bottom:.5rem}
+.prog-body{padding:.9rem 1.25rem 1.1rem;flex:1;display:flex;flex-direction:column}
+.prog-body > p{color:var(--gray2);font-size:.82rem;line-height:1.6;margin-bottom:.6rem}
+.prog-list{margin-bottom:.4rem}
 .prog-list li{
-  color:var(--gray1);font-size:.8rem;padding:.22rem 0;
+  color:var(--gray1);font-size:.78rem;padding:.16rem 0;
   display:flex;align-items:flex-start;gap:.5rem;
 }
 .prog-list li::before{content:'→';color:var(--red);flex-shrink:0}
@@ -1429,7 +1452,7 @@ section{padding:6rem 0}
 .prog-intro strong{color:var(--gold)}
 
 .prog-photo{
-  min-height:200px;
+  min-height:260px;
   background:var(--dark3);
   display:flex;align-items:center;justify-content:center;
   border-bottom:1px solid rgba(255,255,255,.06);
@@ -1437,20 +1460,39 @@ section{padding:6rem 0}
 }
 .prog-photo::after{
   content:'';position:absolute;inset:0;
-  background:linear-gradient(160deg,rgba(192,57,43,.06),rgba(240,165,0,.04));
+  background:linear-gradient(to bottom, transparent 30%, rgba(0,0,0,.55) 100%);
+  z-index:1;
 }
-.prog-photo-kids    {background:linear-gradient(135deg,#071510,#040b08)}
-.prog-photo-teens   {background:linear-gradient(135deg,#070c1e,#030610)}
-.prog-photo-striking{min-height:260px;background:linear-gradient(135deg,#180a00,#0a0500)}
+/* Featured BJJ card gets extra tall photo */
+.prog-bjj .prog-photo{min-height:340px;}
+.prog-photo-kids    {min-height:220px;background:linear-gradient(135deg,#071510,#040b08)}
+.prog-photo-teens   {min-height:220px;background:linear-gradient(135deg,#070c1e,#030610)}
+.prog-photo-striking{min-height:280px;background:linear-gradient(135deg,#180a00,#0a0500)}
 .prog-photo-bjj     {background:linear-gradient(135deg,#180606,#0a0202)}
-.prog-photo-mma     {background:linear-gradient(135deg,#1a0404,#0c0000)}
-.prog-photo-fitness {background:linear-gradient(135deg,#0e1418,#060a0e)}
+.prog-photo-mma     {min-height:280px;background:linear-gradient(135deg,#1a0404,#0c0000)}
+.prog-photo-fitness {min-height:280px;background:linear-gradient(135deg,#0e1418,#060a0e)}
 
 .prog-photo-label{
   color:rgba(255,255,255,.18);font-size:.72rem;font-weight:600;
   text-transform:uppercase;letter-spacing:.12em;text-align:center;
   z-index:1;padding:.5rem;
 }
+
+/* Real photo images inside prog-photo and gal-item */
+.prog-img{
+  width:100%;height:100%;
+  object-fit:cover;display:block;
+  position:absolute;inset:0;
+  transition:transform .55s var(--ease);
+}
+.prog-card:hover .prog-img{transform:scale(1.05)}
+
+.gal-img{
+  width:100%;height:100%;
+  object-fit:cover;display:block;
+  transition:transform .45s var(--ease);
+}
+.gal-item:hover .gal-img{transform:scale(1.06)}
 
 /* Youth col layout (2-card stacked column) */
 .prog-youth-col{display:flex;flex-direction:column;gap:1.25rem}

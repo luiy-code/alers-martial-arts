@@ -6,7 +6,7 @@
   <meta name="description" content="Alers Martial Arts — Premier BJJ, MMA & Striking gym in Pembroke Pines & Miramar, FL. Kids, teen, and adult programs. Summer Camp Ages 5-12. Best of Pembroke Pines 2023. Free trial class!">
   <meta name="keywords" content="BJJ Pembroke Pines, MMA gym Pembroke Pines, kids martial arts Pembroke Pines, Brazilian Jiu-Jitsu, kickboxing, martial arts Miramar FL, kids summer camp Miramar, youth martial arts Broward">
   <title>Alers Martial Arts | BJJ · MMA · Striking | Pembroke Pines & Miramar, FL</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=6">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
@@ -59,6 +59,7 @@
 
 <!-- ===== HERO ============================================== -->
 <section class="hero" id="home">
+  <div class="hero-fighter"></div>
   <div class="hero-glow-red"></div>
   <div class="hero-glow-gold"></div>
   <div class="hero-slash"></div>
@@ -216,18 +217,41 @@
     <h2 class="section-title">Find Your <span class="accent-gold">Program</span></h2>
     <p class="prog-intro">All programs are <strong>beginner friendly</strong> — zero experience required. Every level is welcome at AMA.</p>
 
-    <!-- Row 1: Kids & Teens + Striking -->
+    <!-- Row 1: BJJ (featured) + Kids & Teens -->
     <div class="programs-grid">
+
+      <!-- ── BRAZILIAN JIU-JITSU (featured) ── -->
+      <article class="prog-card prog-bjj">
+        <div class="prog-photo prog-photo-bjj">
+          <img src="ama-gal-bjj.png?v=3" alt="Brazilian Jiu-Jitsu at AMA" class="prog-img" style="object-position:center 70%;filter:contrast(1.15) saturate(1.1);image-rendering:-webkit-optimize-contrast;">
+        </div>
+        <div class="prog-hd bjj">
+          <div class="prog-hd-txt">
+            <h3>Brazilian Jiu-Jitsu</h3>
+            <span class="prog-ages">All Ages · All Levels</span>
+          </div>
+          <span class="prog-level-tag">All Levels</span>
+        </div>
+        <div class="prog-body">
+          <p>The foundation of everything at AMA. From white belt fundamentals to advanced competition prep — Black Belt-led and welcoming to complete beginners.</p>
+          <ul class="prog-list">
+            <li>Gi &amp; No-Gi classes daily</li>
+            <li>Competition training available</li>
+            <li>Self-defense focused</li>
+            <li>Black Belt instruction</li>
+          </ul>
+          <a href="#contact" class="btn-card" onclick="switchPage('contact');return false;">Try a Free Class</a>
+        </div>
+      </article>
 
       <!-- ── KIDS & TEENS (stacked in a column) ── -->
       <div class="prog-youth-col">
 
         <article class="prog-card prog-kids">
           <div class="prog-photo prog-photo-kids">
-            <div class="prog-photo-label">Kids Program Photo</div>
+            <img src="ama-gal-kids.jpg" alt="Kids Martial Arts at AMA" class="prog-img" style="object-position:center 15%;">
           </div>
           <div class="prog-hd kids">
-            <div class="prog-badge-icon d-youth">YOUTH</div>
             <div class="prog-hd-txt">
               <h3>Kids Martial Arts</h3>
               <span class="prog-ages">Ages 4–10</span>
@@ -248,10 +272,9 @@
 
         <article class="prog-card prog-teens">
           <div class="prog-photo prog-photo-teens">
-            <div class="prog-photo-label">Teens Program Photo</div>
+            <img src="ama-gal-teens.jpg" alt="Teens Martial Arts at AMA" class="prog-img">
           </div>
           <div class="prog-hd teens">
-            <div class="prog-badge-icon d-teens">TEENS</div>
             <div class="prog-hd-txt">
               <h3>Teens Martial Arts</h3>
               <span class="prog-ages">Ages 11–17</span>
@@ -272,13 +295,17 @@
 
       </div><!-- /prog-youth-col -->
 
+    </div><!-- /programs-grid row 1 -->
+
+    <!-- Row 2: Striking + MMA + Fitness -->
+    <div class="programs-grid programs-grid-3">
+
       <!-- ── STRIKING: Muay Thai + Kickboxing + Boxing ── -->
       <article class="prog-card prog-striking">
         <div class="prog-photo prog-photo-striking">
-          <div class="prog-photo-label">Striking Class Photo</div>
+          <img src="ama-gal-striking.jpg?v=2" alt="Striking Arts at AMA" class="prog-img" style="object-position:center 20%;">
         </div>
         <div class="prog-hd kickboxing">
-          <div class="prog-badge-icon d-kb">STRIKE</div>
           <div class="prog-hd-txt">
             <h3>Striking Arts</h3>
             <span class="prog-ages">All Ages · All Levels</span>
@@ -303,43 +330,12 @@
         </div>
       </article>
 
-    </div><!-- /programs-grid row 1 -->
-
-    <!-- Row 2: BJJ + MMA + Fitness -->
-    <div class="programs-grid programs-grid-3">
-
-      <!-- ── BRAZILIAN JIU-JITSU ── -->
-      <article class="prog-card">
-        <div class="prog-photo prog-photo-bjj">
-          <div class="prog-photo-label">BJJ Class Photo</div>
-        </div>
-        <div class="prog-hd bjj">
-          <div class="prog-badge-icon d-bjj">BJJ</div>
-          <div class="prog-hd-txt">
-            <h3>Brazilian Jiu-Jitsu</h3>
-            <span class="prog-ages">All Ages · All Levels</span>
-          </div>
-          <span class="prog-level-tag">All Levels</span>
-        </div>
-        <div class="prog-body">
-          <p>The foundation of everything at AMA. From white belt fundamentals to advanced competition prep — Black Belt-led and welcoming to complete beginners.</p>
-          <ul class="prog-list">
-            <li>Gi &amp; No-Gi classes daily</li>
-            <li>Competition training available</li>
-            <li>Self-defense focused</li>
-            <li>Black Belt instruction</li>
-          </ul>
-          <a href="#contact" class="btn-card" onclick="switchPage('contact');return false;">Try a Free Class</a>
-        </div>
-      </article>
-
       <!-- ── MMA ── -->
       <article class="prog-card">
         <div class="prog-photo prog-photo-mma">
-          <div class="prog-photo-label">MMA Class Photo</div>
+          <img src="ama-gal-mma.png?v=2" alt="MMA Training at AMA" class="prog-img" style="object-position:center 15%;">
         </div>
         <div class="prog-hd mma">
-          <div class="prog-badge-icon d-mma">MMA</div>
           <div class="prog-hd-txt">
             <h3>MMA Training</h3>
             <span class="prog-ages">Ages 14+ · All Levels</span>
@@ -364,7 +360,6 @@
           <div class="prog-photo-label">Fitness Class Photo</div>
         </div>
         <div class="prog-hd fitness">
-          <div class="prog-badge-icon d-fit">FIT</div>
           <div class="prog-hd-txt">
             <h3>Fitness Classes</h3>
             <span class="prog-ages">All Ages · All Levels</span>
@@ -936,10 +931,10 @@
     <h2 class="section-title">Life at <span class="accent-red">AMA</span></h2>
     <div class="gal-grid">
       <div class="gal-item tall wide">
-        <div class="gal-ph"><span class="gh-lbl">Training Session</span></div>
+        <div class="gal-ph"><span class="gh-lbl">BJJ Training</span></div>
       </div>
       <div class="gal-item">
-        <div class="gal-ph"><span class="gh-lbl">BJJ Class</span></div>
+        <div class="gal-ph"><span class="gh-lbl">Teens Class</span></div>
       </div>
       <div class="gal-item">
         <div class="gal-ph"><span class="gh-lbl">Kids Program</span></div>
@@ -1501,7 +1496,7 @@
 
       <article class="coach-profile-card">
         <div class="cpc-photo-wrap">
-          <div class="cpc-photo ph"><span class="ph-label">PHOTO<br>COACH JEFFREY</span></div>
+          <img src="coach-jeffrey.png" alt="Coach Jeffrey" class="cpc-photo-img">
         </div>
         <div class="cpc-body">
           <h3 class="cpc-name">Coach Jeffrey</h3>
@@ -1512,7 +1507,7 @@
 
       <article class="coach-profile-card">
         <div class="cpc-photo-wrap">
-          <div class="cpc-photo ph"><span class="ph-label">PHOTO<br>COACH PJ</span></div>
+          <img src="coach-pj.png" alt="Coach PJ" class="cpc-photo-img">
         </div>
         <div class="cpc-body">
           <h3 class="cpc-name">Coach PJ</h3>

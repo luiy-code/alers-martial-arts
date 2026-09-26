@@ -1464,7 +1464,7 @@ section{padding:6rem 0}
   z-index:1;
 }
 /* Featured BJJ card gets extra tall photo */
-.prog-bjj .prog-photo{min-height:340px;}
+.prog-bjj .prog-photo{min-height:390px;}
 .prog-photo-kids    {min-height:220px;background:linear-gradient(135deg,#071510,#040b08)}
 .prog-photo-teens   {min-height:220px;background:linear-gradient(135deg,#070c1e,#030610)}
 .prog-photo-striking{min-height:280px;background:linear-gradient(135deg,#180a00,#0a0500)}

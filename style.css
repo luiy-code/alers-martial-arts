@@ -470,7 +470,7 @@ section{padding:6rem 0}
   position:absolute;
   right:0;top:0;bottom:0;
   width:65%;
-  background:url('hero-bg.webp') center top / cover no-repeat;
+  background:url('hero-bg.webp?v=2') center top / cover no-repeat;
   -webkit-mask-image:linear-gradient(to right,
     transparent 0%,
     rgba(0,0,0,.4) 18%,

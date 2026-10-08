@@ -6,7 +6,7 @@
   <meta name="description" content="Alers Martial Arts — Premier BJJ, MMA & Striking gym in Pembroke Pines & Miramar, FL. Kids, teen, and adult programs. Summer Camp Ages 5-12. Best of Pembroke Pines 2023. Free trial class!">
   <meta name="keywords" content="BJJ Pembroke Pines, MMA gym Pembroke Pines, kids martial arts Pembroke Pines, Brazilian Jiu-Jitsu, kickboxing, martial arts Miramar FL, kids summer camp Miramar, youth martial arts Broward">
   <title>Alers Martial Arts | BJJ · MMA · Striking | Pembroke Pines & Miramar, FL</title>
-  <link rel="stylesheet" href="style.css?v=8">
+  <link rel="stylesheet" href="style.css?v=9">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
@@ -1739,7 +1739,10 @@
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
     <div class="shop-modal-img-panel">
+      <button class="shop-img-arrow shop-img-arrow-left" id="shopImgPrev" onclick="shopImgNav(-1)" aria-label="Previous image" hidden>&#8249;</button>
       <img id="shopModalImg" src="" alt="" class="shop-modal-main-img">
+      <button class="shop-img-arrow shop-img-arrow-right" id="shopImgNext" onclick="shopImgNav(1)" aria-label="Next image" hidden>&#8250;</button>
+      <div class="shop-thumb-strip" id="shopThumbStrip"></div>
     </div>
     <div class="shop-modal-info-panel">
       <p class="shop-modal-brand" id="shopModalBrand"></p>
@@ -1766,6 +1769,6 @@
   </div>
 </div>
 
-<script src="script.js?v=9"></script>
+<script src="script.js?v=10"></script>
 </body>
 </html>

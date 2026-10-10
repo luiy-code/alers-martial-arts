@@ -335,10 +335,10 @@ var SHOP_DATA = {
   rashguard: {
     brand:'AMA', name:'Rashguard',
     desc:'Official AMA compression rashguard — polyester/spandex blend built for BJJ, MMA, and grappling. "AMA – American Martial Arts" chest print.',
-    price:'$45', defaultImg:'shop-rash-classic-top.jpg',
+    price:'$45', defaultImg:'shop-rash-classic-front.png',
     styles:[
-      {label:'Classic Black', img:'shop-rash-classic-top.jpg', images:['shop-rash-classic-top.jpg','shop-rash-classic.jpg','shop-rash-classic-bot.jpg']},
-      {label:'USA Edition',   img:'shop-rash-usa-top.jpg',     images:['shop-rash-usa-top.jpg','shop-rash-usa.jpg','shop-rash-usa-bot.jpg']}
+      {label:'Classic Black', img:'shop-rash-classic-front.png', images:['shop-rash-classic-front.png','shop-rash-classic-back.png','shop-rash-classic-side.png']},
+      {label:'USA Edition',   img:'shop-rash-usa-front.png',  images:['shop-rash-usa-front.png','shop-rash-usa-back.png','shop-rash-usa-side.png']}
     ],
     sizes:['S','M','L','XL','2XL'],
     waBase:'Hi!+I%27d+like+to+order+an+AMA+Rashguard+(%2445).'
@@ -346,10 +346,10 @@ var SHOP_DATA = {
   fightshorts: {
     brand:'AMA', name:'Fight Shorts',
     desc:'Official AMA MMA fight shorts — "01 A Team" embroidered patch, contrast flag panels, 4-way stretch elastic waistband.',
-    price:'$45', defaultImg:'shop-rash-classic-bot.jpg',
+    price:'$45', defaultImg:'shop-shorts-classic-front.png',
     styles:[
-      {label:'Classic Black', img:'shop-rash-classic-bot.jpg', images:['shop-rash-classic-bot.jpg','shop-rash-classic.jpg']},
-      {label:'USA Edition',   img:'shop-rash-usa-bot.jpg',     images:['shop-rash-usa-bot.jpg','shop-rash-usa.jpg']}
+      {label:'Classic Black', img:'shop-shorts-classic-front.png', images:['shop-shorts-classic-front.png','shop-shorts-classic-back.png','shop-shorts-classic-side.png']},
+      {label:'USA Edition',   img:'shop-shorts-usa-front.png', images:['shop-shorts-usa-front.png','shop-shorts-usa-back.png','shop-shorts-usa-side.png']}
     ],
     sizes:['S','M','L','XL','2XL'],
     waBase:'Hi!+I%27d+like+to+order+AMA+Fight+Shorts+(%2445).'
@@ -357,10 +357,10 @@ var SHOP_DATA = {
   amaset: {
     brand:'AMA', name:'Full Set — Top + Shorts',
     desc:'The complete AMA look — rashguard and fight shorts bundled together. Save $10 vs buying separately.',
-    price:'$80', oldPrice:'$90', defaultImg:'shop-rash-classic.jpg',
+    price:'$80', oldPrice:'$90', defaultImg:'shop-set-classic-front.png',
     styles:[
-      {label:'Classic Black', img:'shop-rash-classic.jpg', images:['shop-rash-classic.jpg','shop-rash-classic-top.jpg','shop-rash-classic-bot.jpg']},
-      {label:'USA Edition',   img:'shop-rash-usa.jpg',     images:['shop-rash-usa.jpg','shop-rash-usa-top.jpg','shop-rash-usa-bot.jpg']}
+      {label:'Classic Black', img:'shop-set-classic-front.png', images:['shop-set-classic-front.png','shop-set-classic-back.png','shop-set-classic-side.png']},
+      {label:'USA Edition',   img:'shop-set-usa-front.png',  images:['shop-set-usa-front.png','shop-set-usa-back.png','shop-set-usa-side.png']}
     ],
     sizes:['S','M','L','XL','2XL'],
     waBase:'Hi!+I%27d+like+to+order+the+AMA+Full+Set+(Rashguard+%2B+Shorts%2C+%2480).'

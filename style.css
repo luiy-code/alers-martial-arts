@@ -642,6 +642,7 @@ section{padding:6rem 0}
 /* left image stack */
 .about-media{position:relative}
 .about-ph{min-height:540px;border-radius:var(--radius-lg);overflow:hidden}
+.about-img{display:block;width:100%;height:auto;min-height:0;aspect-ratio:4/3;object-fit:cover;position:relative;z-index:1}
 
 /* gold corner accent */
 .about-media::before{
@@ -923,6 +924,7 @@ section{padding:6rem 0}
 /* new class tags */
 .ct.wrestle{background:rgba(0,168,168,.14);color:#4ecece;border:1px solid rgba(0,168,168,.3)}
 .ct.boxing {background:rgba(230,100,0,.14);color:#f4945c;border:1px solid rgba(230,100,0,.3)}
+.ct.muay   {background:rgba(232,67,147,.14);color:#f27db8;border:1px solid rgba(232,67,147,.3)}
 
 /* ── SCHEDULE DAY CARDS ──────────────────────────────────────── */
 .sched-days{
